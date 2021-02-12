@@ -5,7 +5,7 @@ import { INCREMENT_TWO, SET_USER_NAME } from '../../reducer/action';
 const ComponentTwo = () => {
   console.log('rendered component two');
   const { counter2, email } = useSelector((state) => ({
-    counter2: state.app.counter2,
+    counter2: state.app.counter.counter2,
     email: state.auth.email
   }));
   const dispatch = useDispatch();
