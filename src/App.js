@@ -1,9 +1,9 @@
 import { Provider } from 'react-redux';
-import { createStore, compose } from 'redux';
+import { createStore } from 'redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import rootReducer from './reducer';
-import StateProvider from './state';
+import StateProvider from './context';
 import ContextOne from './components/context-comp/ComponentOne';
 import ContextTwo from './components/context-comp/ComponentTwo';
 import ContextHookOne from './components/context-hooks/ComponentOne';

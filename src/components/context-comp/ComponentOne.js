@@ -1,21 +1,32 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { StateContext } from '../../context';
+import { setEmail as setEmailAction, incrementOne as incrementOneAction } from '../../reducer/action';
 
-const ComponentOne = (props) => {
-  console.log('rendered component one', props);
+const ComponentOne = () => {
   const [email, setEmail] = useState('');
-
+  const { state, dispatch } = useContext(StateContext);
+  console.log('rendered component one', state);
+  
   const handleEmail = (event) => {
     setEmail(event.target.value);
+  };
+
+  const incrementOne = () => {
+    dispatch(incrementOneAction());
+  };
+
+  const saveEmail = () => {
+    dispatch(setEmailAction(email));
   };
 
   return (
     <>
       <h4>Component One</h4>
-      <div>Counter : {props.counter1}<button onClick={props.incrementOne}>Increment</button></div>
+      <div>Counter : {state.app.counter.counter1}<button onClick={incrementOne}>Increment</button></div>
       <div>
-        <p>Username : {props.username}</p>
+        <p>Username : {state.auth.username}</p>
         Email : <input value={email} onChange={handleEmail} />
-        <button onClick={() => props.setEmail(email)}>Save Email</button>
+        <button onClick={saveEmail}>Save Email</button>
       </div>
     </>  
   );

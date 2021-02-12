@@ -12,7 +12,6 @@ export const setEmail = (email) => {
 };
 
 export const setUsername = (username) => {
-  console.log('setUsername', username);
   return {
     type: SET_USER_NAME,
     data: username
